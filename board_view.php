@@ -1,78 +1,42 @@
-<!DOCTYPE html>
-<html>
-<head> 
-<meta charset="utf-8">
-<title>PHP 프로그래밍 입문</title>
-<link rel="stylesheet" type="text/css" href="./css/common.css">
-<link rel="stylesheet" type="text/css" href="./css/board.css">
-</head>
-<body> 
-<header>
-    <?php include "header.php";?>
-</header>  
-<section>
-	<div id="main_img_bar">
-        <img src="./img/main_img.png">
-    </div>
-   	<div id="board_box">
-	    <h3 class="title">
-			게시판 > 내용보기
-		</h3>
 <?php
-	$num  = $_GET["num"];
-	$page  = $_GET["page"];
+    // ... (데이터베이스 연결 등의 필요한 코드)
+    $host = 'localhost'; // 호스트명
+    $username = 'LWB'; // 사용자명
+    $password = 'qkrtpgus956322!'; // 비밀번호
+    $dbname = 'LWB'; // 데이터베이스명
 
-	$con = mysqli_connect("localhost", "user1", "12345", "sample");
-	$sql = "select * from board where num=$num";
-	$result = mysqli_query($con, $sql);
+    // MySQL 데이터베이스에 연결합니다.
+    $mysqli = new mysqli($host, $username, $password, $dbname);
 
-	$row = mysqli_fetch_array($result);
-	$id      = $row["id"];
-	$name      = $row["name"];
-	$regist_day = $row["regist_day"];
-	$subject    = $row["subject"];
-	$content    = $row["content"];
-	$file_name    = $row["file_name"];
-	$file_type    = $row["file_type"];
-	$file_copied  = $row["file_copied"];
-	$hit          = $row["hit"];
+    // 게시물 번호를 확인하고 해당 게시물을 로드합니다.
+    if (isset($_GET['id'])) {
+        $postId = $_GET['id'];
 
-	$content = str_replace(" ", "&nbsp;", $content);
-	$content = str_replace("\n", "<br>", $content);
+        // 게시물을 조회하는 SQL 쿼리를 작성합니다.
+        $query = "SELECT * FROM workoutBoard WHERE num = $postId";
+        $result = $mysqli->query($query);
 
-	$new_hit = $hit + 1;
-	$sql = "update board set hit=$new_hit where num=$num";   
-	mysqli_query($con, $sql);
-?>		
-	    <ul id="view_content">
-			<li>
-				<span class="col1"><b>제목 :</b> <?=$subject?></span>
-				<span class="col2"><?=$name?> | <?=$regist_day?></span>
-			</li>
-			<li>
-				<?php
-					if($file_name) {
-						$real_name = $file_copied;
-						$file_path = "./data/".$real_name;
-						$file_size = filesize($file_path);
+        if ($result && $result->num_rows > 0) {
+            // 게시물이 존재하는 경우 해당 게시물을 가져옵니다.
+            $post = $result->fetch_assoc();
 
-						echo "▷ 첨부파일 : $file_name ($file_size Byte) &nbsp;&nbsp;&nbsp;&nbsp;
-			       		<a href='download.php?num=$num&real_name=$real_name&file_name=$file_name&file_type=$file_type'>[저장]</a><br><br>";
-			           	}
-				?>
-				<?=$content?>
-			</li>		
-	    </ul>
-	    <ul class="buttons">
-				<li><button onclick="location.href='board_list.php?page=<?=$page?>'">목록</button></li>
-				<li><button onclick="location.href='board_modify_form.php?num=<?=$num?>&page=<?=$page?>'">수정</button></li>
-				<li><button onclick="location.href='board_delete.php?num=<?=$num?>&page=<?=$page?>'">삭제</button></li>
-				<li><button onclick="location.href='board_form.php'">글쓰기</button></li>
-		</ul>
-	</div> <!-- board_box -->
-</section> 
-<footer>
-    <?php include "footer.php";?>
-</footer>
-</body>
-</html>
+            // 게시물 내용을 화면에 표시합니다.
+            echo "<h2>게시물 번호: " . $post['num'] . "</h2>";
+            echo "<h3>제목: " . $post['title'] . "</h3>";
+            echo "<p>작성자: " . $post['name'] . "</p>";
+            echo "<p>작성일: " . $post['regist_day'] . "</p>";
+            echo "<p>조회수: " . $post['hit'] . "</p>";
+            echo "<p>내용: " . $post['content'] . "</p>";
+        } else {
+            echo "게시물을 찾을 수 없습니다.";
+        }
+
+        // 결과를 해제합니다.
+        $result->free();
+    } else {
+        echo "게시물 번호를 전달받지 못했습니다.";
+    }
+
+    // ... (데이터베이스 연결 해제 등의 필요한 코드)
+    $mysqli->close();
+?>

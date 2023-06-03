@@ -1,0 +1,128 @@
+main {
+    margin-top: 120px;
+}
+h1, h2 {
+    font-size: 2em;
+    line-height: 1.2em;
+    word-break: keep-all;
+}
+h3 {
+    font-weight: bold;
+}
+
+main #grid > .item, main #grid-bottom > .item, main #grid-end .item{
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.09);
+    border-radius: 16px;
+    transition: 0.2s;
+}
+
+main #grid > .item:hover, main #grid-bottom> .item:hover, main #grid-end .item:hover{
+    top: -4px;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.2);
+}
+
+main .content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    word-break: keep-all;
+}
+main .content span{
+    font-weight: 500;
+    font-size: 1.2em;
+    color: #ff702a;
+}
+main .content img {
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.introduce {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+}
+
+.col-side{
+    grid-row: 1 / 3;
+}
+.col-start{
+    width: 579px;
+}
+.col-end{
+    width: 579px;
+}
+.item table{
+    border-collapse: collapse;
+}
+.item thead{
+    border-bottom: 2px solid #000;
+    text-align: center;
+}
+#userRank tr, #noticeBoard tr, #freeBoard tr,
+#workoutBoard tr, #todayBoard tr{
+    border-bottom: 1px solid gray;
+    text-align: center;
+    
+}
+#userRank td, #noticeBoard td, #freeBoard td,
+#workoutBoard td, #todayBoard td{
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
+}
+#userRank td a:hover, #noticeBoard td a:hover, #freeBoard td a:hover,
+#workoutBoard td a:hover, #todayBoard td a:hover{
+    transition: 0.2s;
+    color: #ff702a;
+}
+
+
+@media (min-width: 1251px) {
+    main #grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+    }
+    main #grid-bottom{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+    main #grid-end{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+
+@media (max-width: 1250px) {
+    main #grid, main #grid-bottom, main #grid-end{
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+    main #grid > .item, main #grid-bottom > .item, main #grid-end > .item {
+        position: unset;
+        width: 100%;
+        display: flex;
+    }
+
+    .introduce,
+    .col-start,
+    .col-end,
+    .col-all {
+        grid-column: unset;
+    }
+}
