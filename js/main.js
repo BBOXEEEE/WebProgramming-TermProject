@@ -21,8 +21,8 @@ document.addEventListener("DOMContentLoaded", function() {
                         nullCell.textContent = "등록된 회원이 없습니다.";
                         nullCell.colSpan = 4;
                         nullRow.appendChild(nullCell);
-                        noticeBoard.style.height = "400px";
-                        noticeBoard.appendChild(nullRow);
+                        userRank.style.height = "400px";
+                        userRank.appendChild(nullRow);
                     }
                     data.forEach(list => {
                         const newRow = document.createElement("tr");
@@ -31,7 +31,10 @@ document.addEventListener("DOMContentLoaded", function() {
                         const point = document.createElement("td");
 
                         rank.textContent = row;
-                        name.textContent = list.name;
+                        const message = document.createElement("a");
+                        message.href = `./message.php?name=${list.name}`;
+                        message.textContent = list.name;
+                        name.appendChild(message);
                         point.textContent = list.point;
                         if(row <= 3){
                             rank.style.color = 'red';
@@ -81,8 +84,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         const date = document.createElement("td");
 
                         num.textContent = row;
-                        title.textContent = list.title;
-                        name.textContent = list.name;
+                        const link = document.createElement("a");
+                        link.href = `./board_notice_view.php?num=${list.num}&page=1`;
+                        link.textContent = list.title;
+                        title.appendChild(link);
+                        const message = document.createElement("a");
+                        message.href = `./message.php?name=${list.name}`;
+                        message.textContent = list.name;
+                        name.appendChild(message);
                         date.textContent = list.regist_day;
                         ++row;
 
@@ -127,8 +136,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         const date = document.createElement("td");
 
                         num.textContent = row;
-                        title.textContent = list.title;
-                        name.textContent = list.name;
+                        const link = document.createElement("a");
+                        link.href = `./board_free_view.php?num=${list.num}&page=1`;
+                        link.textContent = list.title;
+                        title.appendChild(link);
+                        const message = document.createElement("a");
+                        message.href = `./message.php?name=${list.name}`;
+                        message.textContent = list.name;
+                        name.appendChild(message);
                         date.textContent = list.regist_day;
                         ++row;
 
@@ -173,8 +188,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         const date = document.createElement("td");
 
                         num.textContent = row;
-                        title.textContent = list.title;
-                        name.textContent = list.name;
+                        const link = document.createElement("a");
+                        link.href = `./board_info_workout_view.php?num=${list.num}&page=1`;
+                        link.textContent = list.title;
+                        title.appendChild(link);
+                        const message = document.createElement("a");
+                        message.href = `./message.php?name=${list.name}`;
+                        message.textContent = list.name;
+                        name.appendChild(message);
                         date.textContent = list.regist_day;
                         ++row;
 
@@ -219,8 +240,14 @@ document.addEventListener("DOMContentLoaded", function() {
                         const date = document.createElement("td");
 
                         num.textContent = row;
-                        title.textContent = list.title;
-                        name.textContent = list.name;
+                        const link = document.createElement("a");
+                        link.href = `./board_today_view.php?num=${list.num}&page=1`;
+                        link.textContent = list.title;
+                        title.appendChild(link);
+                        const message = document.createElement("a");
+                        message.href = `./message.php?name=${list.name}`;
+                        message.textContent = list.name;
+                        name.appendChild(message);
                         date.textContent = list.regist_day;
                         ++row;
 

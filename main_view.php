@@ -7,7 +7,7 @@
     <title>헬스 커뮤니티 | Light Weight Baby</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/header.css">
-    <link rel="stylesheet" href="./css/community.css">
+    <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/footer.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
     <link rel="icon" href="./img/favicon.ico"/>

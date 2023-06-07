@@ -96,6 +96,11 @@ header .mypage .slash {
     padding: 0 6px;
 }
 
+header .icon{
+    margin: 0;
+    color: #ff702a;
+}
+
 @media (min-width: 1251px) {
     header .wrap {
         gap: 80px;

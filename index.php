@@ -12,7 +12,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="./index.php"><img src="./img/logo2.png"></a>
+        <a href="./index.php"><img src="./img/logo.png"></a>
 
         <nav class="navbar">
             <a href="index.php">Home</a>
@@ -26,11 +26,6 @@
             <h3>헬스 커뮤니티</h3>
             <h1>Light Weight Baby</h1>
             <h3><span class="text"></span></h3>
-            <div class="icon-link">
-                <a href="https://github.com/BBOXEEEE/WebProgramming-TermProject"><i class='bx bxl-github'></i></a>
-                <a href="#"><i class='bx bx-navigation'></i></a>
-                <a href="mailto:bboxeeee@koreatech.ac.kr"><i class='bx bx-mail-send' ></i></a>
-            </div>
             <a href="community_view.php" class="button-box">JUST DO IT!</a>
         </div>
         <div class="gif"> 

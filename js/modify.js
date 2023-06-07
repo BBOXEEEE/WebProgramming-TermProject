@@ -67,7 +67,5 @@ function resetInput(){
 
 // 비밀번호 확인이 변경될 때마다 checkPassword 함수를 호출합니다.
 pwCheckInput.addEventListener('input', checkPassword);
-// Submit 버튼을 클릭하면 handleSubmit 함수를 호출합니다.
-signupButton.addEventListener('click', checkInput);
 // Cancel 버튼
 cancelButton.addEventListener('click', resetInput);

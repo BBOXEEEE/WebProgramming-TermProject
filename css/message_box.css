@@ -1,0 +1,122 @@
+main {
+    margin-top: 120px;
+}
+h1, h2 {
+    font-size: 2em;
+    line-height: 1.2em;
+    word-break: keep-all;
+}
+h3 {
+    font-weight: bold;
+}
+
+#grid-top .category{
+    position: relative;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,0.09);
+    border-radius: 16px;
+    transition: 0.2s;
+}
+#grid-bottom .item{
+    position: relative;
+    top: 0;
+    width: 700px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.09);
+    border-radius: 16px;
+    transition: 0.2s;
+}
+#grid-top .category:hover, #grid-bottom .item:hover{
+    top: -4px;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.2);
+}
+.curr{
+    background-color: #ff702a;
+    font-weight: 600;
+}
+table{
+    border-collapse: collapse;
+}
+thead{
+    border-bottom: 2px solid #000;
+}
+
+#messageList tr{
+    border-bottom: 1px solid gray;
+}
+#messageList td{
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}
+#messageList td a:hover{
+    transition: 0.2s;
+    color: #ff702a;
+}
+#pagination{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#pagination button{
+    width: 50px;
+    height: 20px;
+    background: #162938;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    font-weight: 400;
+    margin: 3px;
+    cursor: pointer;
+}
+#pagination .active{
+    background: #ff702a;
+}
+
+@media (min-width: 1251px) {
+    #grid-top{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 36px;
+    }
+    #grid-bottom{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+}
+@media (max-width: 1250px) {
+    #grid-top{
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+    }
+    #grid-top .category{
+        position: unset;
+        width: 120px;
+        display: flex;
+    }
+    #grid-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+    #grid-bottom > .item {
+        position: unset;
+        width: 100%;
+        display: flex;
+    }
+}

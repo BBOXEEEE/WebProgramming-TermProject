@@ -14,27 +14,20 @@
     }
 
     $id = $_GET['id'];
-
     $pw = $_POST['pw'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
 
-    // 쿼리를 생성합니다.
-    $query = "UPDATE members SET pw='$pw', email='$email', phone='$phone' WHERE id='$id'";
+    $query = "UPDATE member SET pw='$pw', email='$email', phone='$phone' WHERE id='$id'";
 
-    // 쿼리를 실행하여 데이터를 DB에 삽입합니다.
     if ($mysqli->query($query) === true) {
-        // 등록 성공 시 알림창을 띄웁니다.
         echo 
             '<script>
                 alert("회원정보가 수정되었습니다!");
                 window.location.href = "../main_view.php";
             </script>';
     } else {
-        // 등록 실패 시 오류 메시지를 출력합니다.
         echo 'Error: ' . $query . '<br>' . $mysqli->error;
     }
-
-    // MySQL 연결을 닫습니다.
     $mysqli->close();
 ?>

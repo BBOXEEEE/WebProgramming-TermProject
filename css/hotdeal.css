@@ -1,0 +1,107 @@
+main {
+    margin-top: 120px;
+}
+h1, h2 {
+    font-size: 2em;
+    line-height: 1.2em;
+    word-break: keep-all;
+}
+h3 {
+    font-weight: bold;
+}
+
+#grid-top .category{
+    position: relative;
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,0.09);
+    border-radius: 16px;
+    transition: 0.5s;
+}
+#grid-bottom .item{
+    position: relative;
+    top: 0;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.09);
+    border-radius: 16px;
+    transition: 0.2s;
+}
+#grid-top .category:hover, #grid-bottom .item:hover{
+    top: -4px;
+    box-shadow: 4px 12px 30px 6px rgba(0,0,0,.2);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    word-break: keep-all;
+}
+.content img {
+    width: 500px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+.content a {
+    font-weight: 400;
+    transition: 0.2s;
+}
+.content a:hover{
+    color: #ff702a;
+    top: -4px;
+}
+.curr{
+    background-color: #ff702a;
+    font-weight: 600;
+}
+
+@media (min-width: 1251px) {
+    #grid-top{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 36px;
+    }
+    #grid-bottom{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 36px;
+    }
+}
+@media (max-width: 1250px) {
+    #grid-top{
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+    }
+    #grid-top .category{
+        position: unset;
+        width: 120px;
+        display: flex;
+    }
+    #grid-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+    }
+    #grid-bottom > .item {
+        position: unset;
+        width: 100%;
+        display: flex;
+    }
+}

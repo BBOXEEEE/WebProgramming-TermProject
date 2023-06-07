@@ -1,0 +1,9 @@
+CREATE TABLE comment_supplements(
+	num INT NOT NULL AUTO_INCREMENT,
+    post_num INT NOT NULL,
+	id VARCHAR(15) NOT NULL,
+	name VARCHAR(15) NOT NULL,
+	comment TEXT NOT NULL,
+	regist_day VARCHAR(20) NOT NULL,
+	PRIMARY KEY (num)
+) CHARSET = UTF8MB4;

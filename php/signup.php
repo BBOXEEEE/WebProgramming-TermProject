@@ -20,22 +20,18 @@ $pw = $_POST['pw'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 
-// 쿼리를 생성합니다.
-$query = "INSERT INTO members (name, id, pw, email, phone, level, point) VALUES ('$username', '$id', '$pw', '$email', '$phone', 9, 0)";
+$query = "INSERT INTO member (name, id, pw, email, phone) VALUES ('$username', '$id', '$pw', '$email', '$phone')";
 
-// 쿼리를 실행하여 데이터를 DB에 삽입합니다.
 if ($mysqli->query($query) === true) {
-    // 등록 성공 시 알림창을 띄웁니다.
+    // 등록 성공 시 알림창
     echo 
         '<script>
             alert("등록되었습니다.");
             window.location.href = "../main_view.php";
         </script>';
 } else {
-    // 등록 실패 시 오류 메시지를 출력합니다.
+    // 등록 실패 시 오류 메시지 출력
     echo 'Error: ' . $query . '<br>' . $mysqli->error;
 }
-
-// MySQL 연결을 닫습니다.
 $mysqli->close();
 ?>

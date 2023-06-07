@@ -55,7 +55,6 @@ function checkInput(event){
     signupForm.submit();
 }
 
-// 비밀번호와 비밀번호 확인이 일치하는지 확인하는 함수를 정의합니다.
 function checkPassword() {
   if (pwInput.value === pwCheckInput.value) {
     pwIcon.style.color = 'green';

@@ -3,7 +3,7 @@
     $pass = $_POST["pw"];
 
     $con = mysqli_connect("localhost", "LWB", "qkrtpgus956322!", "LWB");               
-    $sql = "select * from members where id='$id'";
+    $sql = "SELECT * FROM member WHERE id='$id'";
     $result = mysqli_query($con, $sql);
 
     $num_match = mysqli_num_rows($result);

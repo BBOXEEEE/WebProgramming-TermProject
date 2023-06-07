@@ -7,7 +7,11 @@
     if (isset($_SESSION["email"])) $email = $_SESSION["email"];
     else $email = "";
     if (isset($_SESSION["phone"])) $phone = $_SESSION["phone"];
-    else $phone = ""; 
+    else $phone = "";
+
+    $con = mysqli_connect("localhost", "LWB", "qkrtpgus956322!", "LWB");
+    $sql = "SELECT is_read FROM message WHERE to_id = '$userid' AND is_read = false";
+    $result = mysqli_query($con, $sql);
 ?>	
 
 <div class="toggleBtn">
@@ -17,34 +21,52 @@
 </div>
 <div class="wrap">
         <div class="logo">
-            <a href="./main_view.php"><img src="./img/logo2.png"></a>
+            <a href="./main_view.php"><img src="./img/logo.png"></a>
         </div>
         <div class="navWrap">
             <nav>
                 <ul class="main">
                     <li>
-                        <a href="./guide_chest_view.php">운동 가이드</a>
+                        <a href="./board_notice.php?page=1">공지사항</a>
                     </li>
                     <li>
-                        <a href="./shared_board1_view.php">운동 정보 공유</a>
+                        <a href="./guide_chest.php">운동 가이드</a>
                     </li>
                     <li>
-                        <a href="#">오늘의 운동</a>
+                        <a href="./board_info_workout.php?page=1">운동 정보</a>
                     </li>
                     <li>
-                        <a href="#">질의 응답</a>
+                        <a href="./board_today.php?page=1">오늘의 운동</a>
                     </li>
                     <li>
-                        <a href="#">커뮤니티</a>
+                        <a href="board_qna.php?page=1">질의 응답</a>
+                    </li>
+                    <li>
+                        <a href="./board_free.php?page=1">자유게시판</a>
+                    </li>
+                    <li>
+                        <a href="./hotdeal_protein.php">핫딜</a>
                     </li>
                 </ul>
                 <?php
                     if($userid) {
                 ?>
                 <ul class="main-end">
-                <li>
-                        <a href="./mypage_view.php">내정보</a>
+                    <?php
+                        if($result->num_rows > 0){
+                    ?>
+                        <li>
+                            <ion-icon name="checkmark-circle" class="icon"></ion-icon>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                    <li>
+                        <a href="./message_inbox.php?page=1">쪽지함</a>
                     </li>
+                        <li>
+                            <a href="./mypage_view.php">내정보</a>
+                        </li>
                     <li>
                         <a href="./php/logout.php">로그아웃</a>
                     </li>
@@ -53,7 +75,7 @@
                 } else {
                 ?>
                 <ul class="main-end">
-                <li>
+                    <li>
                         <a href="./signup_view.php">회원가입</a>
                     </li>
                     <li>
