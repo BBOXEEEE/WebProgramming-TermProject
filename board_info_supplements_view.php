@@ -39,13 +39,13 @@
 	    $content = str_replace(" ", "&nbsp;", $content);
 	    $content = str_replace("\n", "<br>", $content);
    
-        $hit_cookie_user = $id."_hit";
+        $hit_cookie_user = $userid.$num."_hit";
         if($userid && !(isset($_COOKIE[$hit_cookie_user]))) {                  
             $new_hit = $hit + 1;                                  
             $sql = "UPDATE board_supplements SET hit=$new_hit WHERE num=$num";  
             mysqli_query($con, $sql);
         } 
-        $hit_cookie_nouser = $num."_notuser_hit";
+        $hit_cookie_nouser = $num."_hit";
         if(!$userid){
             if(!isset($_COOKIE[$hit_cookie_nouser])){
                 $new_hit = $hit + 1;

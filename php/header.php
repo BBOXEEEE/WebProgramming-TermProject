@@ -1,4 +1,4 @@
-<?php
+<?php    
     session_start();
     if (isset($_SESSION["userid"])) $userid = $_SESSION["userid"];
     else $userid = "";
@@ -10,8 +10,10 @@
     else $phone = "";
 
     $con = mysqli_connect("localhost", "LWB", "qkrtpgus956322!", "LWB");
-    $sql = "SELECT is_read FROM message WHERE to_id = '$userid' AND is_read = false";
-    $result = mysqli_query($con, $sql);
+    if(!empty($userid)) {
+        $sql = "SELECT is_read FROM message WHERE to_id = '$userid' AND is_read = false";
+        $result = mysqli_query($con, $sql);
+    }
 ?>	
 
 <div class="toggleBtn">

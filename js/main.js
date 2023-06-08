@@ -4,6 +4,7 @@ const freeBoard = document.getElementById("freeBoard");
 const workoutBoard = document.getElementById("workoutBoard");
 const todayBoard = document.getElementById("todayBoard");
 
+
 document.addEventListener("DOMContentLoaded", function() {
     window.addEventListener("load", function() {
         function loadUserRank(){
